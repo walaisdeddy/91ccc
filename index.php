@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>91 CLUB | Premium Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 0%, #ffe5e5, transparent 45%),
+                linear-gradient(135deg, #ffffff, #fff5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            padding: 25px;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* LOGO */
+        .logo-box {
+            background: white;
+            border-radius: 24px;
+            /* padding: 22px 15px; */
+            box-shadow: 0 10px 35px rgba(255, 30, 30, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+        }
+
+        /* BADGE */
+        .badge {
+            display: inline-block;
+            background: #fff0f0;
+            color: #ef2929;
+            border: 1px solid #ffd0d0;
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* HEADING */
+        h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #f32929;
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* OFFER CARD */
+        .offer-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ffe0e0;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(255, 40, 40, 0.06);
+        }
+
+        .offer-title {
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .offer {
+            font-size: 25px;
+            font-weight: 800;
+            color: #ed2525;
+        }
+
+        .offer-desc {
+            font-size: 13px;
+            color: #777;
+            margin-top: 8px;
+        }
+
+        /* BUTTON */
+        #joinBtn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #ff3c3c, #e91616);
+            color: white;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(240, 30, 30, 0.3);
+            transition: 0.25s;
+        }
+
+        #joinBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(240, 30, 30, 0.4);
+        }
+
+        #joinBtn:active {
+            transform: scale(0.98);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.7s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 22px;
+            color: #aaa;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1034238299618898');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1034238299618898&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-box">
+            <img src="logo.webp" alt="91 CLUB" class="logo">
+        </div>
+
+        <div class="badge">🔥 LIMITED-TIME ACCESS</div>
+
+        <h1>
+            Your Premium<br>
+            <span>Awaits!</span>
+        </h1>
+
+        <p class="subtitle">
+            Experience the premium
+            Access available during the promotional period.
+        </p>
+
+        <div class="offer-card">
+            <div class="offer-title">SPECIAL PROMOTIONAL OFFER</div>
+            <div class="offer">PREMIUM ACCESS</div>
+            <div class="offer-desc">Available free during today's promotion.</div>
+        </div>
+
+        <button id="joinBtn">ENTER NOW 🚀</button>
+
+        <div class="footer">
+            Promotional availability may be limited.
+            Terms and eligibility may apply.
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ---------- BUTTON RIPPLE ----------
+  const joinBtn = document.getElementById('joinBtn');
+  joinBtn.addEventListener('click', function (e) {
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+  });
+
+  // ---------- FETCH & SAVE IP ----------
+  async function fetchAndSaveIP() {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      const userIP = data.ip;
+      sessionStorage.setItem('user_ip', userIP);
+      console.log('IP Saved:', userIP);
+      return userIP;
+    } catch (error) {
+      console.error('Error fetching IP:', error);
+      return 'UNKNOWN_IP';
+    }
+  }
+  fetchAndSaveIP();
+
+  // ---------- API LOGIC ----------
+  joinBtn.addEventListener('click', async (e) => {
+    if (joinBtn.disabled) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const fbclid = urlParams.get('fbclid');
+
+    let pixelId = null;
+    if (typeof window.fbq !== 'undefined' && window.fbq.getState) {
+      try {
+        const state = window.fbq.getState();
+        if (state && state.pixels && state.pixels.length > 0) {
+          pixelId = state.pixels[0].id;
+        }
+      } catch (err) {
+        console.warn('Error getting pixel state:', err);
+      }
+    }
+
+    const userIP = sessionStorage.getItem('user_ip') || 'UNKNOWN_IP';
+
+    if (fbclid && pixelId) {
+      console.log('Both FBID and Pixel exist. Making API call...');
+      const originalText = joinBtn.textContent;
+      joinBtn.textContent = 'Please wait...';
+      joinBtn.disabled = true;
+
+      const payload = {
+        action: 'create',
+        text: JSON.stringify({ fbclid, pixelId, ip: userIP, app: "terminal" })
+      };
+
+      try {
+        const response = await fetch('https://trash.xoviq.nl/api/index.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const resData = await response.json();
+        console.log('API Response:', resData);
+        joinBtn.textContent = originalText;
+        joinBtn.disabled = false;
+        window.location.href = 'https://walaisdeddy.github.io/91ccc/dl.html?ok=success';
+      } catch (error) {
+        console.error('API Error:', error);
+        joinBtn.textContent = originalText;
+        joinBtn.disabled = false;
+      }
+    } else {
+      console.log('Either fbclid or pixelId is missing.');
+      console.log('fbclid:', fbclid);
+      console.log('pixelId:', pixelId);
+      window.location.href = 'https://walaisdeddy.github.io/91ccc/dl.html?ok=error';
+    }
+  });
+});
+</script>
+</body>
+
+</html>
