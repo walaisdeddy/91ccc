@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolbox Pro v1.2 | Secure Download</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', 'Consolas', monospace;
+      min-height: 100vh;
+      background: #0a0e14;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #c9d1d9;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Matrix scanline effect */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 150, 0.03) 0px,
+        rgba(0, 255, 150, 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Subtle green glow top */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 255, 150, 0.08), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 460px;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TERMINAL WINDOW */
+    .terminal-window {
+      background: #0d1117;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(0, 255, 150, 0.05),
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 100px rgba(0, 255, 150, 0.05);
+    }
+
+    /* Terminal top bar */
+    .terminal-bar {
+      background: #161b22;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      color: #6e7681;
+      letter-spacing: 1px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Terminal body */
+    .terminal-body {
+      padding: 24px 20px;
+    }
+
+    /* Boot lines */
+    .boot-line {
+      font-size: 11.5px;
+      color: #00ff96;
+      margin-bottom: 6px;
+      opacity: 0;
+      animation: typeLine 0.4s ease forwards;
+      font-family: 'Courier New', monospace;
+    }
+
+    .boot-line .prompt {
+      color: #58a6ff;
+    }
+
+    .boot-line .dim {
+      color: #484f58;
+    }
+
+    .boot-line:nth-child(1) { animation-delay: 0.1s; }
+    .boot-line:nth-child(2) { animation-delay: 0.3s; }
+    .boot-line:nth-child(3) { animation-delay: 0.5s; }
+    .boot-line:nth-child(4) { animation-delay: 0.7s; }
+
+    @keyframes typeLine {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 13px;
+      background: #00ff96;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1f2937, transparent);
+      margin: 20px 0;
+    }
+
+    /* Logo / icon area */
+    .app-header {
+      text-align: center;
+      padding: 8px 0 20px;
+    }
+
+    .app-icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #0d1117, #161b22);
+      border: 1.5px solid rgba(0, 255, 150, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow:
+        0 0 30px rgba(0, 255, 150, 0.15),
+        inset 0 0 20px rgba(0, 255, 150, 0.05);
+    }
+
+    .app-icon::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #00ff96, #00ccff, #00ff96);
+      z-index: -1;
+      opacity: 0.3;
+      filter: blur(6px);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.5; }
+    }
+
+    .app-icon i {
+      font-size: 42px;
+      color: #00ff96;
+      text-shadow: 0 0 20px rgba(0, 255, 150, 0.6);
+    }
+
+    .app-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .app-name span {
+      color: #00ff96;
+    }
+
+    .app-version {
+      font-size: 11px;
+      color: #6e7681;
+      letter-spacing: 2px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 5px 14px;
+      background: rgba(0, 255, 150, 0.08);
+      border: 1px solid rgba(0, 255, 150, 0.25);
+      border-radius: 20px;
+      font-size: 10.5px;
+      color: #00ff96;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .verified-badge i {
+      font-size: 11px;
+    }
+
+    /* File info terminal-style */
+    .file-panel {
+      background: #161b22;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 18px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .file-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding: 6px 0;
+    }
+
+    .file-row:not(:last-child) {
+      border-bottom: 1px dashed #1f2937;
+    }
+
+    .file-key {
+      color: #6e7681;
+    }
+
+    .file-key i {
+      color: #00ff96;
+      margin-right: 6px;
+      font-size: 11px;
+      width: 14px;
+    }
+
+    .file-val {
+      color: #c9d1d9;
+      font-weight: 600;
+    }
+
+    .file-val.green {
+      color: #00ff96;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .stat-box {
+      background: #161b22;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 12px 6px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .stat-box:hover {
+      border-color: rgba(0, 255, 150, 0.3);
+      box-shadow: 0 0 20px rgba(0, 255, 150, 0.08);
+    }
+
+    .stat-box i {
+      font-size: 15px;
+      color: #00ff96;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .stat-box .num {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .stat-box .lbl {
+      font-size: 9px;
+      color: #6e7681;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Download button */
+    #downloadBtn {
+      width: 100%;
+      padding: 17px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00ff96, #00cc7a);
+      color: #0a0e14;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 6px 25px rgba(0, 255, 150, 0.3),
+        0 0 50px rgba(0, 255, 150, 0.1);
+      transition: 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-family: 'Courier New', monospace;
+    }
+
+    #downloadBtn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 10px 35px rgba(0, 255, 150, 0.5),
+        0 0 70px rgba(0, 255, 150, 0.2);
+    }
+
+    #downloadBtn:active {
+      transform: scale(0.98);
+    }
+
+    #downloadBtn i {
+      font-size: 16px;
+    }
+
+    /* Telegram button */
+    #telegramBtn {
+      width: 100%;
+      padding: 15px;
+      border: 1.5px solid rgba(0, 170, 255, 0.35);
+      border-radius: 10px;
+      background: rgba(0, 136, 204, 0.08);
+      color: #33bbff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+    }
+
+    #telegramBtn:hover {
+      background: rgba(0, 136, 204, 0.15);
+      border-color: rgba(0, 170, 255, 0.7);
+      box-shadow: 0 0 30px rgba(0, 170, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    #telegramBtn i {
+      font-size: 18px;
+    }
+
+    /* Ripple */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(0);
+      animation: ripple 0.7s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* Footer terminal line */
+    .footer-line {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #1f2937;
+      font-size: 10.5px;
+      color: #484f58;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer-line i {
+      color: #00ff96;
+      font-size: 11px;
+    }
+
+    .footer-line .ok {
+      color: #00ff96;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="terminal-window">
+
+    <!-- Terminal top bar -->
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <div class="terminal-title">root@toolbox-pro: ~</div>
+    </div>
+
+    <!-- Terminal body -->
+    <div class="terminal-body">
+
+      <!-- Boot lines -->
+      <div class="boot-line"><span class="prompt">$</span> initializing secure session...</div>
+      <div class="boot-line"><span class="prompt">$</span> verifying package integrity <span class="dim">[OK]</span></div>
+      <div class="boot-line"><span class="prompt">$</span> loading Toolbox Pro v1.2 <span class="dim">[OK]</span></div>
+      <div class="boot-line"><span class="prompt">$</span> ready to install <span class="cursor"></span></div>
+
+      <div class="divider"></div>
+
+      <!-- App header -->
+      <div class="app-header">
+        <div class="app-icon">
+          <i class="fa-solid fa-toolbox"></i>
+        </div>
+        <div class="app-name">Toolbox<span>Pro</span></div>
+        <div class="app-version">v1.2.0 • STABLE BUILD</div>
+        <div class="verified-badge">
+          <i class="fa-solid fa-shield-halved"></i> Verified &amp; Safe
+        </div>
+      </div>
+
+      <!-- File info panel -->
+      <div class="file-panel">
+        <div class="file-row">
+          <span class="file-key"><i class="fa-solid fa-file"></i>filename</span>
+          <span class="file-val">toolbox-pro-v1.2.apk</span>
+        </div>
+        <div class="file-row">
+          <span class="file-key"><i class="fa-solid fa-database"></i>size</span>
+          <span class="file-val">7.22 MB</span>
+        </div>
+        <div class="file-row">
+          <span class="file-key"><i class="fa-solid fa-code-branch"></i>version</span>
+          <span class="file-val">1.2.0</span>
+        </div>
+        <div class="file-row">
+          <span class="file-key"><i class="fa-solid fa-circle-check"></i>status</span>
+          <span class="file-val green">CLEAN / NO VIRUS</span>
+        </div>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <i class="fa-solid fa-download"></i>
+          <div class="num">18.7K</div>
+          <div class="lbl">Downloads</div>
+        </div>
+        <div class="stat-box">
+          <i class="fa-solid fa-star"></i>
+          <div class="num">4.9</div>
+          <div class="lbl">Rating</div>
+        </div>
+        <div class="stat-box">
+          <i class="fa-solid fa-shield"></i>
+          <div class="num">100%</div>
+          <div class="lbl">Secure</div>
+        </div>
+      </div>
+
+      <!-- Download button -->
+      <button id="downloadBtn">
+        <i class="fa-solid fa-download"></i>
+        DOWNLOAD APK
+      </button>
+
+      <!-- Telegram button -->
+      <a id="telegramBtn" href="https://t.me/+vOaTLEyVr28yNTVl" target="_blank" rel="noopener">
+        <i class="fa-brands fa-telegram"></i>
+        DOWNLOAD FROM TELEGRAM
+      </a>
+
+      <!-- Footer -->
+      <div class="footer-line">
+        <i class="fa-solid fa-lock"></i>
+        <span>encrypted download • <span class="ok">verified by Toolbox Pro</span></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const downloadBtn = document.getElementById('downloadBtn');
+  const telegramBtn = document.getElementById('telegramBtn');
+
+  // Ripple effect
+  [downloadBtn, telegramBtn].forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 700);
+    });
+  });
+
+  // Download action
+  downloadBtn.addEventListener('click', () => {
+    if (downloadBtn.disabled) return;
+
+    const originalHTML = downloadBtn.innerHTML;
+    downloadBtn.disabled = true;
+    downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> DOWNLOADING...';
+
+    // Replace with actual APK file URL or path
+    const apkUrl = 'toolbox-pro-v1.2.apk';
+
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = apkUrl;
+      link.download = 'toolbox-pro-v1.2.apk';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      downloadBtn.innerHTML = '<i class="fa-solid fa-check"></i> DOWNLOAD COMPLETE';
+      setTimeout(() => {
+        downloadBtn.innerHTML = originalHTML;
+        downloadBtn.disabled = false;
+      }, 2500);
+    }, 900);
+  });
+});
+</script>
+
+</body>
+</html>
