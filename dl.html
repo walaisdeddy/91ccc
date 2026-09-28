@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-
-    <title>91 CLUB Navigator | Download Now</title>
+    <title>91 CLUB Navigator · download</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -29,290 +28,216 @@
 
         body {
             min-height: 100vh;
-            padding: 22px 14px;
-
+            padding: 12px 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-
             font-family: 'Inter', sans-serif;
             color: var(--text);
-
             background:
-                radial-gradient(ellipse at top,
-                    rgba(237, 75, 78, .12),
-                    transparent 55%),
+                radial-gradient(ellipse at top, rgba(237, 75, 78, .12), transparent 55%),
                 #fffafa;
         }
 
         .page {
             width: 100%;
-            max-width: 470px;
-            animation: appear .6s ease;
+            max-width: 460px;
+            animation: appear .45s ease;
         }
 
         @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* HEADER */
-
-        .brand {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .brand-name {
-            font-size: 34px;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            color: var(--red);
-        }
-
-        .brand-name span {
-            color: #25272b;
-        }
-
-        .brand-subtitle {
-            margin-top: 8px;
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        /* CARD */
-
+        /* compact card */
         .card {
             background: #fff;
             border: 1px solid #f3dddd;
-            border-radius: 24px;
+            border-radius: 22px;
             overflow: hidden;
-
-            box-shadow: 0 20px 65px rgba(92, 31, 33, .10);
+            box-shadow: 0 16px 40px rgba(92, 31, 33, .08);
         }
 
-        /* TOP */
-
+        /* TOP — tighter */
         .card-header {
             text-align: center;
-            padding: 28px 22px 25px;
-
-            background: linear-gradient(180deg,
-                    #fff1f1,
-                    #ffffff);
-
+            padding: 20px 18px 16px;
+            background: linear-gradient(180deg, #fff1f1, #ffffff);
             border-bottom: 1px solid #f7e5e5;
         }
 
         .app-icon {
-            width: 76px;
-            height: 76px;
-
+            width: 62px;
+            height: 62px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            margin: 0 auto 18px;
-
+            margin: 0 auto 12px;
             color: white;
-            font-size: 31px;
-
-            background: linear-gradient(135deg,
-                    #f36a6d,
-                    var(--red-dark));
-
-            border-radius: 24px;
-
-            box-shadow: 0 10px 28px rgba(237, 75, 78, .27);
+            font-size: 26px;
+            background: linear-gradient(135deg, #f36a6d, var(--red-dark));
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(237, 75, 78, .22);
         }
 
         .card-header h1 {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
-            letter-spacing: -.7px;
+            letter-spacing: -.4px;
         }
 
         .card-header p {
-            margin-top: 10px;
+            margin-top: 5px;
             color: var(--muted);
-            font-size: 13px;
-            line-height: 1.7;
+            font-size: 12px;
+            line-height: 1.5;
         }
-
-        /* FREE ACCESS BADGE */
 
         .free-badge {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-
-            margin-top: 17px;
-            padding: 9px 15px;
-
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 14px;
             color: #b92e33;
             background: #fff;
             border: 1px solid var(--border);
-            border-radius: 50px;
-
-            font-size: 12px;
+            border-radius: 40px;
+            font-size: 11px;
             font-weight: 800;
-
-            box-shadow: 0 4px 15px rgba(237, 75, 78, .07);
+            box-shadow: 0 2px 8px rgba(237, 75, 78, .06);
         }
 
         .free-badge i {
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* CONTENT */
-
+        /* body — extra compact */
         .card-body {
-            padding: 23px;
+            padding: 18px 18px 15px;
         }
 
         .label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             color: #9a6a6b;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
-        /* APP DETAILS */
-
+        /* file card – smaller */
         .file-card {
-            padding: 16px;
-            margin-bottom: 18px;
-
+            padding: 12px 14px;
+            margin-bottom: 12px;
             background: #fffdfd;
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 14px;
         }
 
         .file-top {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 11px;
         }
 
         .file-icon {
-            width: 49px;
-            height: 52px;
+            width: 42px;
+            height: 44px;
             flex-shrink: 0;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: var(--red);
             background: var(--red-light);
-            border-radius: 13px;
-
-            font-size: 25px;
+            border-radius: 12px;
+            font-size: 22px;
         }
 
         .file-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             overflow-wrap: anywhere;
         }
 
         .file-desc {
-            margin-top: 6px;
+            margin-top: 3px;
             color: var(--muted);
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .file-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-
-            margin-top: 17px;
-            padding-top: 14px;
-
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 10px;
             border-top: 1px solid #f4e4e4;
         }
 
         .detail-label {
             display: block;
             color: var(--muted);
-            font-size: 11px;
-            margin-bottom: 6px;
+            font-size: 10px;
+            margin-bottom: 3px;
         }
 
         .detail-value {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
         }
 
-        /* FEATURES */
-
+        /* features – horizontal row */
         .features {
-            display: grid;
-            gap: 11px;
-            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0 16px;
         }
 
         .feature {
+            flex: 1 1 120px;
             display: flex;
             align-items: center;
-            gap: 11px;
-
-            padding: 12px 14px;
-
+            gap: 7px;
+            padding: 8px 10px;
             background: #fffafa;
             border: 1px solid #f8e6e6;
-            border-radius: 12px;
-
-            font-size: 12px;
+            border-radius: 30px;
+            font-size: 11px;
             font-weight: 600;
             color: #44474e;
+            white-space: nowrap;
         }
 
         .feature i {
-            width: 19px;
             color: var(--red);
-            font-size: 16px;
+            font-size: 14px;
+            width: 16px;
             text-align: center;
         }
 
-        /* BUTTONS */
-
+        /* buttons — more compact */
         .btn {
             width: 100%;
-            min-height: 56px;
-
+            min-height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 11px;
-
-            padding: 16px;
-
+            gap: 9px;
+            padding: 12px 14px;
             border: none;
             border-radius: 14px;
-
             font-family: inherit;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
-
             text-decoration: none;
             text-align: center;
-
             cursor: pointer;
             position: relative;
             overflow: hidden;
-
-            transition: .2s ease;
+            transition: .15s ease;
         }
 
         .btn:active {
@@ -321,29 +246,23 @@
 
         .btn-primary {
             color: white;
-
-            background: linear-gradient(135deg,
-                    #f15b5f,
-                    var(--red-dark));
-
-            box-shadow: 0 10px 25px rgba(237, 75, 78, .25);
+            background: linear-gradient(135deg, #f15b5f, var(--red-dark));
+            box-shadow: 0 8px 18px rgba(237, 75, 78, .22);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(237, 75, 78, .32);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 22px rgba(237, 75, 78, .3);
         }
 
         .btn-primary i {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .btn-secondary {
-            margin-top: 12px;
-
+            margin-top: 9px;
             color: var(--red-dark);
             background: white;
-
             border: 1.5px solid var(--border);
         }
 
@@ -352,150 +271,139 @@
         }
 
         .btn-secondary i {
-            font-size: 18px;
+            font-size: 16px;
         }
 
-        /* NOTICE */
-
+        /* notice — one line, less padding */
         .notice {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-
-            padding: 14px;
-            margin-top: 18px;
-
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            margin-top: 14px;
             background: #f8f9fb;
             border: 1px solid #eceef1;
-            border-radius: 13px;
-
+            border-radius: 12px;
             color: #626770;
-            font-size: 12px;
-            line-height: 1.7;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
         .notice i {
-            margin-top: 3px;
             color: var(--red);
-            font-size: 16px;
+            font-size: 15px;
             flex-shrink: 0;
         }
 
-        /* INSTALL GUIDE */
-
+        /* installation steps – inline / condensed */
         .install {
-            margin-top: 25px;
+            margin-top: 16px;
         }
 
         .install h2 {
-            font-size: 15px;
-            margin-bottom: 15px;
+            font-size: 13px;
+            margin-bottom: 10px;
         }
 
         .steps {
-            display: grid;
-            gap: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            justify-content: space-between;
         }
 
         .step {
             display: flex;
-            gap: 12px;
-            align-items: flex-start;
-
-            font-size: 12px;
-            line-height: 1.7;
+            gap: 8px;
+            align-items: center;
+            font-size: 11px;
+            line-height: 1.4;
             color: #626770;
+            flex: 1 1 120px;
         }
 
         .number {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             border-radius: 50%;
-
             background: var(--red-light);
             color: var(--red-dark);
-
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
         }
 
-        /* FOOTER */
-
+        /* footer – small */
         .footer {
-            padding: 19px 14px;
+            padding: 13px 12px;
             text-align: center;
-
             color: #9699a0;
-            font-size: 11px;
-            line-height: 1.8;
-
+            font-size: 10px;
+            line-height: 1.6;
             border-top: 1px solid #f4eeee;
         }
 
         .footer i {
             color: var(--red);
-            margin-right: 5px;
+            margin-right: 4px;
         }
 
-        /* RIPPLE */
-
+        /* ripple */
         .ripple {
             position: absolute;
             border-radius: 50%;
             background: rgba(255, 255, 255, .4);
-
             transform: scale(0);
-            animation: ripple .65s linear;
+            animation: ripple .5s linear;
             pointer-events: none;
         }
 
         @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+            to { transform: scale(4); opacity: 0; }
         }
 
-        /* MOBILE */
-
-        @media(max-width:480px) {
+        /* mobile */
+        @media (max-width: 480px) {
             body {
-                padding: 18px 12px;
+                padding: 10px 12px;
                 align-items: flex-start;
             }
 
-            .brand-name {
-                font-size: 30px;
-            }
-
             .card {
-                border-radius: 20px;
+                border-radius: 18px;
             }
 
             .card-header {
-                padding: 25px 18px 22px;
+                padding: 18px 14px 14px;
             }
 
             .card-header h1 {
-                font-size: 23px;
+                font-size: 20px;
             }
 
             .card-body {
-                padding: 19px 17px;
+                padding: 15px 15px 12px;
+            }
+
+            .feature {
+                flex: 1 1 100%;
+            }
+
+            .steps {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .step {
+                flex: 1 1 auto;
             }
         }
 
-        @media(prefers-reduced-motion:reduce) {
-
-            *,
-            *::before,
-            *::after {
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
                 animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: .01ms !important;
@@ -508,25 +416,9 @@
 
     <main class="page">
 
-        <!-- BRAND -->
-
-        <header class="brand" style="display:none;">
-
-            <div class="brand-name">
-                91 <span>CLUB</span>
-            </div>
-
-            <p class="brand-subtitle">
-                Your Gaming Companion
-            </p>
-
-        </header>
-
-
-        <!-- MAIN CARD -->
-
         <section class="card">
 
+            <!-- HEADER: compact -->
             <div class="card-header">
 
                 <div class="app-icon">
@@ -536,8 +428,7 @@
                 <h1>91 CLUB Navigator</h1>
 
                 <p>
-                    Get the latest version of the app.
-                    Download now and explore the features.
+                    Get the latest version · quick install
                 </p>
 
                 <div class="free-badge">
@@ -547,13 +438,10 @@
 
             </div>
 
-
+            <!-- BODY -->
             <div class="card-body">
 
-                <div class="label">
-                    Application Details
-                </div>
-
+                <div class="label">Application details</div>
 
                 <div class="file-card">
 
@@ -564,262 +452,134 @@
                         </div>
 
                         <div>
-
                             <div class="file-name" id="fileName">
                                 toolbox-pro-v1.2.apk
                             </div>
-
                             <div class="file-desc">
-                                Android Application Package
+                                Android package
                             </div>
-
                         </div>
 
                     </div>
-
 
                     <div class="file-details">
-
                         <div>
-                            <span class="detail-label">
-                                Version
-                            </span>
-
-                            <span class="detail-value" id="version">
-                                Latest
-                            </span>
+                            <span class="detail-label">Version</span>
+                            <span class="detail-value" id="version">Latest</span>
                         </div>
-
                         <div>
-                            <span class="detail-label">
-                                Access
-                            </span>
-
-                            <span class="detail-value">
-                                Limited Free
-                            </span>
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Limited free</span>
                         </div>
-
                     </div>
 
                 </div>
 
-
-                <!-- FEATURES -->
-
+                <!-- features inline -->
                 <div class="features">
-
                     <div class="feature">
-                        <i class="fa-solid fa-bolt"></i>
-                        Quick & Easy Installation
+                        <i class="fa-solid fa-bolt"></i> Quick install
                     </div>
-
                     <div class="feature">
-                        <i class="fa-solid fa-mobile-screen"></i>
-                        Designed for Android Devices
+                        <i class="fa-solid fa-mobile-screen"></i> Android
                     </div>
-
                     <div class="feature">
-                        <i class="fa-solid fa-gift"></i>
-                        Limited Free Access Available
+                        <i class="fa-solid fa-gift"></i> Free access
                     </div>
-
                 </div>
 
-
-                <!-- DOWNLOAD -->
-
+                <!-- DOWNLOAD BUTTON -->
                 <a class="btn btn-primary" id="downloadBtn" href="toolbox-pro-v1.2.apk" download="toolbox-pro-v1.2.apk">
-
-                    <i class="fa-solid fa-download"></i>
-
-                    DOWNLOAD NOW
-
+                    <i class="fa-solid fa-download"></i> DOWNLOAD NOW
                 </a>
-
 
                 <!-- TELEGRAM -->
-
                 <a class="btn btn-secondary" href="https://t.me/+4pXthrdrbi03M2Ux" target="_blank"
                     rel="noopener noreferrer">
-
-                    <i class="fa-brands fa-telegram"></i>
-
-                    GET IT ON TELEGRAM
-
-                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:12px"></i>
-
+                    <i class="fa-brands fa-telegram"></i> GET ON TELEGRAM
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px"></i>
                 </a>
 
-
-                <!-- NOTICE -->
-
+                <!-- NOTICE: single line -->
                 <div class="notice">
-
                     <i class="fa-solid fa-circle-info"></i>
-
-                    <div>
-                        <strong>Installation information:</strong>
-                        Download the APK only from a source you trust.
-                        Review the app permissions and Android
-                        installation prompts before proceeding.
-                    </div>
-
+                    <span>Download APK from trusted source. Review permissions.</span>
                 </div>
 
-
-                <!-- INSTALLATION STEPS -->
-
+                <!-- INSTALL STEPS: compact row -->
                 <div class="install">
 
                     <h2>
-                        <i class="fa-solid fa-circle-question" style="color:var(--red);margin-right:6px"></i>
-
-                        How to Install
+                        <i class="fa-solid fa-circle-question" style="color:var(--red);margin-right:5px"></i>
+                        How to install
                     </h2>
 
-
                     <div class="steps">
-
                         <div class="step">
-
                             <span class="number">1</span>
-
-                            <span>
-                                Tap <strong>Download Now</strong>
-                                to download the APK file.
-                            </span>
-
+                            <span>Tap <strong>Download</strong></span>
                         </div>
-
                         <div class="step">
-
                             <span class="number">2</span>
-
-                            <span>
-                                Open the downloaded APK from your
-                                browser or phone's Downloads folder.
-                            </span>
-
+                            <span>Open the APK</span>
                         </div>
-
                         <div class="step">
-
                             <span class="number">3</span>
-
-                            <span>
-                                Follow Android's installation
-                                instructions and tap Install.
-                            </span>
-
+                            <span>Install &amp; enjoy</span>
                         </div>
-
                     </div>
 
                 </div>
 
             </div>
 
-
             <!-- FOOTER -->
-
             <footer class="footer">
-
-                <i class="fa-solid fa-heart"></i>
-
-                Thank you for visiting 91 CLUB Navigator.
-
+                <i class="fa-solid fa-heart"></i> 91 CLUB Navigator
                 <br>
-
-                © <span id="year"></span> 91 CLUB Navigator
-
+                © <span id="year"></span>
             </footer>
 
         </section>
 
     </main>
 
-
     <script>
-
         // ===================================
         // DOWNLOAD CONFIGURATION
         // ===================================
-
-        // Place your APK in the same folder as this HTML.
-        // Or replace the URL with your actual hosted APK URL.
-
         const APK_URL = 'toolbox-pro-v1.2.apk';
-
         const APK_FILENAME = 'toolbox-pro-v1.2.apk';
-
-        // Enter your actual version here.
-
         const APP_VERSION = 'Latest';
 
-
         // ===================================
-        // INITIALIZE
+        // INIT
         // ===================================
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('fileName').textContent = APK_FILENAME;
+        document.getElementById('version').textContent = APP_VERSION;
 
-        document.getElementById('year').textContent =
-            new Date().getFullYear();
-
-        document.getElementById('fileName').textContent =
-            APK_FILENAME;
-
-        document.getElementById('version').textContent =
-            APP_VERSION;
-
-        const downloadBtn =
-            document.getElementById('downloadBtn');
-
+        const downloadBtn = document.getElementById('downloadBtn');
         downloadBtn.href = APK_URL;
-
-        downloadBtn.setAttribute(
-            'download',
-            APK_FILENAME
-        );
-
+        downloadBtn.setAttribute('download', APK_FILENAME);
 
         // ===================================
-        // BUTTON RIPPLE EFFECT
+        // RIPPLE (lightweight)
         // ===================================
-
         document.querySelectorAll('.btn').forEach((button) => {
-
             button.addEventListener('click', function (event) {
-
                 const rect = this.getBoundingClientRect();
-
                 const ripple = document.createElement('span');
-
-                const size = Math.max(
-                    rect.width,
-                    rect.height
-                );
-
+                const size = Math.max(rect.width, rect.height);
                 ripple.className = 'ripple';
-
                 ripple.style.width = size + 'px';
                 ripple.style.height = size + 'px';
-
-                ripple.style.left =
-                    (event.clientX - rect.left - size / 2) + 'px';
-
-                ripple.style.top =
-                    (event.clientY - rect.top - size / 2) + 'px';
-
+                ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
                 this.appendChild(ripple);
-
-                setTimeout(() => {
-                    ripple.remove();
-                }, 700);
-
+                setTimeout(() => ripple.remove(), 600);
             });
-
         });
-
     </script>
 
 </body>
